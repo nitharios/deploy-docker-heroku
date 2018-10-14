@@ -1,12 +1,12 @@
 version: '3'
 services:
   web:
-    image: nitharios/deploy-docker-heroku:${IMAGE_VERSION}-local
+    image: ${IMAGE_NAME}:${IMAGE_VERSION}-local
     depends_on:
       - postgres-primary-db
       - redis-session-store
     command: ["npm", "run", "start"]
-    container_name: deploy-docker-heroku
+    container_name: ${CONTAINER_NAME}
     volumes:
       - ".:/app/:rw"
     env_file: .env
